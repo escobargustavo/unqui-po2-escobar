@@ -46,6 +46,21 @@ public class Carta {
 	public void setPalo(String palo) {
 		this.palo = palo;
 	}
+
+	public boolean sonDelMismoPalo(Carta carta) {
+		
+		return this.getPalo().equals(carta.getPalo());
+	}
+
+	
+	public boolean mayorQue(Carta carta) {
+		
+		return this.valorEnNumero() > carta.valorEnNumero();
+	}
+
+	public boolean tieneMismoValor(Carta carta) {
+		return this.valorEnNumero() == carta.valorEnNumero();
+	}
 	
 
 }

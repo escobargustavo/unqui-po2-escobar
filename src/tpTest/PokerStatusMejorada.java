@@ -5,22 +5,17 @@ import java.util.ArrayList;
 public class PokerStatusMejorada {
 
 	public boolean hayPoker(Carta carta1, Carta carta2, Carta carta3, Carta carta4, Carta carta5) {
-		int c1 = carta1.valorEnNumero();
-		int c2 = carta2.valorEnNumero();
-		int c3 = carta3.valorEnNumero();
-		int c4 = carta4.valorEnNumero();
-		int c5 = carta5.valorEnNumero();
-		ArrayList<Integer> cartas = new ArrayList<Integer>() ;
-		cartas.add(c1);
-		cartas.add(c2);
-		cartas.add(c3);
-		cartas.add(c4);
-		cartas.add(c5);
+		ArrayList<Carta> cartas = new ArrayList<Carta>() ;
+		cartas.add(carta1);
+		cartas.add(carta2);
+		cartas.add(carta3);
+		cartas.add(carta4);
+		cartas.add(carta5);
 		long largo = 0;
 		
 		for(int i = 0; i < cartas.size(); i++) {
-			int valor = cartas.get(i);
-			largo = cartas.stream().filter(carta ->carta == valor ).count();
+			Carta cartaI = cartas.get(i);
+			largo = cartas.stream().filter(carta -> cartaI.tieneMismoValor(carta)).count();
 			if(largo == 4) {
 				return true;
 			}
@@ -42,40 +37,36 @@ public class PokerStatusMejorada {
 	}
 
 	public boolean hayColor(Carta carta1, Carta carta2, Carta carta3, Carta carta4, Carta carta5) {
-		ArrayList<String> cartas = new ArrayList<String>() ;
-		cartas.add(carta1.getPalo());
-		cartas.add(carta2.getPalo());
-		cartas.add(carta3.getPalo());
-		cartas.add(carta4.getPalo());
-		cartas.add(carta5.getPalo());
+		ArrayList<Carta> cartas = new ArrayList<Carta>() ;
+		cartas.add(carta1);
+		cartas.add(carta2);
+		cartas.add(carta3);
+		cartas.add(carta4);
+		cartas.add(carta5);
 		
-		boolean result = cartas.stream().filter(palo -> palo.equalsIgnoreCase(carta1.getPalo())).count() == 5;
-		return result;
+		return cartas.stream().filter(carta -> carta.sonDelMismoPalo(carta1)).count() == 5;
+		
 	}
 
 	public boolean hayTrio(Carta carta1, Carta carta2, Carta carta3, Carta carta4, Carta carta5) {
-		int c1 = carta1.valorEnNumero();
-		int c2 = carta2.valorEnNumero();
-		int c3 = carta3.valorEnNumero();
-		int c4 = carta4.valorEnNumero();
-		int c5 = carta5.valorEnNumero();
-		ArrayList<Integer> cartas = new ArrayList<Integer>() ;
-		cartas.add(c1);
-		cartas.add(c2);
-		cartas.add(c3);
-		cartas.add(c4);
-		cartas.add(c5);
+
+		ArrayList<Carta> cartas = new ArrayList<Carta>() ;
+		cartas.add(carta1);
+		cartas.add(carta2);
+		cartas.add(carta3);
+		cartas.add(carta4);
+		cartas.add(carta5);
 		long largo = 0;
 		
 		for(int i = 0; i < cartas.size(); i++) {
-			int valor = cartas.get(i);
-			largo = cartas.stream().filter(carta ->carta == valor ).count();
+			Carta cartaI = cartas.get(i);
+			largo = cartas.stream().filter(carta ->carta.tieneMismoValor(cartaI) ).count();
 			if(largo == 3) {
 				return true;
 			}
 		}
 		
-		return false;
+		return false; 
 	}
 
 }
