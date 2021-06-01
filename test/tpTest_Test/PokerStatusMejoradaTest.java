@@ -19,7 +19,7 @@ class PokerStatusMejoradaTest {
 	private Carta carta6;
 	
 	private PokerStatusMejorada mano;
-	
+	// Setup
 	@BeforeEach
 	void setUp() throws Exception {
 		mano = new PokerStatusMejorada();
@@ -48,24 +48,35 @@ class PokerStatusMejoradaTest {
 		carta6.setValorN(8);
 	}
 
+	// se verifica las condiciones del verificar
 	@Test
 	public void testVerificar() {
+		// exercise
 		String poker = mano.verificar(carta1,carta2,carta3,carta4,carta5);
 		String color = mano.verificar(carta1,carta1,carta1,carta1,carta1);
-		String nada = mano.verificar(carta3,carta1,carta5,carta6,carta4);
+		String nada = mano.verificar(carta3,carta1,carta5,carta6,carta6);
+		String trio = mano.verificar(carta1,carta2,carta3,carta5,carta5);
+		
+		// verify
 		assertEquals("Poker",poker);
 		assertEquals("Color",color);
 		assertEquals("Nada",nada);
+		assertEquals("Trio",trio);
 	}
 	
+	// se verifica la condicion para que halla color
 	@Test
 	public void testHayColor() {
+		// exercise
 		boolean color = mano.hayColor(carta1,carta1,carta1,carta1,carta1);
+		//verify
 		assertTrue(color);
 	}
 	
+	// se verifica las condiciones para que halla trio
 	@Test
 	public void testHayTrio() {
+		// exercise
 		boolean trio1 = mano.hayTrio(carta1,carta2,carta3,carta5,carta5);
 		boolean trio2 = mano.hayTrio(carta1,carta2,carta5,carta4,carta5);
 		boolean trio3 = mano.hayTrio(carta1,carta5,carta3,carta4,carta5);
@@ -77,6 +88,7 @@ class PokerStatusMejoradaTest {
 		boolean trio9 = mano.hayTrio(carta5,carta5,carta1,carta2,carta3);
 		boolean trio10 = mano.hayTrio(carta1,carta5,carta2,carta5,carta3);
 		
+		// verify
 		assertTrue(trio1);
 		assertTrue(trio2);
 		assertTrue(trio3);
@@ -89,14 +101,18 @@ class PokerStatusMejoradaTest {
 		assertTrue(trio10);
 	}
 	
+	
+	// Se verifican las condiciones para que halla Poker 
 	@Test
 	void testHayPoker() {
+		// exercise
 		boolean poker1 = mano.hayPoker(carta1,carta2,carta3,carta4,carta5);
 		boolean poker2 = mano.hayPoker(carta5,carta2,carta3,carta4,carta1);
 		boolean poker3 = mano.hayPoker(carta1,carta5,carta3,carta4,carta2);
 		boolean poker4 = mano.hayPoker(carta1,carta2,carta5,carta3,carta4);
 		boolean poker5 = mano.hayPoker(carta1,carta2,carta3,carta5,carta4);
 		
+		// verify
 		assertTrue(poker1);
 		assertTrue(poker2);
 		assertTrue(poker3);

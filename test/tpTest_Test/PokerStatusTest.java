@@ -19,6 +19,7 @@ class PokerStatusTest {
 	private String carta5;
 	private String carta6;
 	
+	// setup
 	@BeforeEach
 	void setUp() throws Exception {
 		mano = new PokerStatus();
@@ -33,32 +34,42 @@ class PokerStatusTest {
 	
 	@Test
 	void testVerificar() {
+		// exercise
 		String poker = mano.verificar(carta1,carta2,carta3,carta4,carta5);
 		String color = mano.verificar(carta1,carta1,carta1,carta1,carta1);
 		String trio = mano.verificar(carta1,carta2,carta3,carta5,carta5);
 		String nada = mano.verificar(carta1,carta1,carta5,carta5,carta6);
 		
+		// verify
 		assertEquals("Poquer", poker);
 		assertEquals("Color", color);
 		assertEquals("Trio", trio);
 		assertEquals("Nada", nada);
 	}
 
+	
+	// Se verifica la condicion para que halla color
 	@Test
 	void testHayColor() {
+		
+		// exercise
 		boolean color = mano.hayColor(carta1,carta1,carta1,carta1,carta1);
+		// verify
 		assertTrue(color);
 	}
 	
 
-	
+	// Se ferifica las condiciones para que halla poker
 	@Test
 	void testEsPoker() {
+		// exercise
 		boolean poker1 = mano.esPoker(carta1,carta2,carta3,carta4,carta5);
 		boolean poker2 = mano.esPoker(carta5,carta2,carta3,carta4,carta1);
 		boolean poker3 = mano.esPoker(carta1,carta5,carta3,carta4,carta2);
 		boolean poker4 = mano.esPoker(carta1,carta2,carta5,carta3,carta4);
 		boolean poker5 = mano.esPoker(carta1,carta2,carta3,carta5,carta4);
+		
+		//verify
 		assertTrue(poker1);
 		assertTrue(poker2);
 		assertTrue(poker3);
@@ -66,6 +77,7 @@ class PokerStatusTest {
 		assertTrue(poker5);
 	}
 
+	// Se verifica las condiciones para que halla trio
 	@Test
 	void testHayTrio() {
 		boolean trio1 = mano.hayTrio(carta1,carta2,carta3,carta5,carta5);

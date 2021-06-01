@@ -33,6 +33,9 @@ public class PokerStatusMejorada {
 		if(hayColor(carta1,carta2,carta3,carta4,carta5)) {
 			return "Color";
 		}
+		if(hayTrio(carta1,carta2,carta3,carta4,carta5)) {
+			return "Trio";
+		}
 		return resultado;
 	}
 
@@ -60,7 +63,7 @@ public class PokerStatusMejorada {
 		
 		for(int i = 0; i < cartas.size(); i++) {
 			Carta cartaI = cartas.get(i);
-			largo = cartas.stream().filter(carta ->carta.tieneMismoValor(cartaI) ).count();
+			largo = cartas.stream().filter(carta -> cartaI.tieneMismoValor(carta)).count();
 			if(largo == 3) {
 				return true;
 			}
