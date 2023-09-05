@@ -4,6 +4,7 @@ package ar.edu.unq.tp2;
 
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -13,11 +14,13 @@ import java.util.Date;
  *
  */
 public abstract class Empleado {
+	
 	private String nombre;
 	private String direccion;
 	private String estadoCivil;
 	private Date fechaNac;
 	private float sueldoBasico;
+	private ArrayList<Recibo> recibos;
 	
 	
 	// metodo que devuelve si el Empleado esta soltero
@@ -42,12 +45,14 @@ public abstract class Empleado {
 	
 	// Constructo y GETTER & SETTER
 	public Empleado(String nombre, String direccion, String estadoCivil, Date fechaNac, float sueldoBasico) {
-		super();
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.estadoCivil = estadoCivil;
 		this.fechaNac = fechaNac;
 		this.sueldoBasico = sueldoBasico;
+		//CADA VEZ QUE SE CREA UN EMPLEADO NUEVO SU LISTA DE RECIBOS SE INICIALIZA VACIA HASTA EL MOMENTO QUE 
+		// LA EMPRESA CARGUE EL RECIBO CORRESPONDIENTE
+		this.recibos = new ArrayList<Recibo>();
 	}
 	public String getNombre() {
 		return nombre;
@@ -79,7 +84,12 @@ public abstract class Empleado {
 	public void setSueldoBasico(float sueldoBasico) {
 		this.sueldoBasico = sueldoBasico;
 	}
+
+
+	protected abstract void liquidarSueldo();
 	
-	
+	public void addRecibo(Recibo r) {
+		this.recibos.add(r);
+	}
 	
 }
