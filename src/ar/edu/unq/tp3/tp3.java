@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class tp3 {
 
 	public static void main(String[] args) {
-
+		System.out.print(5 * 0.0);
 	}
 
 	/**

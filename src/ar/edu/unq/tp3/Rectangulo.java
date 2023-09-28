@@ -99,25 +99,5 @@ public class Rectangulo {
 		this.punto4 = punto4;
 	}
 
-	public void mostrarRectangulo() {
 
-		int base = this.getPunto2().getX() - this.getPunto1().getX();
-
-		int altura = this.getPunto3().getY() - this.getPunto1().getY();
-
-		for (int i = 0; i < base; i++) {
-			System.out.print("*");
-		}
-		System.out.println();
-		for (int i = 0; i < altura - 2; i++) {
-			System.out.print("*");
-			for (int j = 0; j < base - 2; j++) {
-				System.out.print(" ");
-			}
-			System.out.println("*");
-		}
-		for (int i = 0; i < base; i++) {
-			System.out.print("*");
-		}
-	}
 }

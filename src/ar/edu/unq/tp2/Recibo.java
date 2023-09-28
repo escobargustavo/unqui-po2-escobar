@@ -42,12 +42,8 @@ public class Recibo {
 	public void setSueldoNeto(float sueldoNeto) {
 		this.sueldoNeto = sueldoNeto;
 	}
-	public ArrayList<Concepto> getConcepto() {
-		return concepto;
-	}
-	public void setConcepto(ArrayList<Concepto> concepto) {
-		this.concepto = concepto;
-	}
+
+	
 	public Recibo(String nombreEmp, String direcc, LocalDate fechEmision, float sueldoBruto, float sueldoNeto,
 			ArrayList<Concepto> concepto) {
 		super();

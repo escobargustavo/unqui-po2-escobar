@@ -1,4 +1,4 @@
-package equipoDeTrabajoTp3;
+package ar.edu.unq.equipoDeTrabajoTp3;
 
 /**
  * Defina la clase Persona y modélela en Java. Una persona tiene su nombre, apellido y edad.
