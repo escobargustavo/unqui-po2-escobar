@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import ar.edu.unq.impuesto.Ingreso;
-import ar.edu.unq.impuesto.Trabajador;
 
 class TrabajadorTest {
 

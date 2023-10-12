@@ -7,9 +7,6 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import ar.edu.unq.equipoDeTrabajoTp3.EquipoDeTrabajo;
-import ar.edu.unq.equipoDeTrabajoTp3.Persona;
-
 class EquipoDeTrabajoTest {
 
 	

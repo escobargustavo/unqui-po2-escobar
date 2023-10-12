@@ -1,13 +1,60 @@
 package ar.edu.unq.tp3;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import ar.edu.unq.claseStreams.Producto;
 
 public class tp3 {
 
 	public static void main(String[] args) {
-		System.out.print(5 * 0.0);
+		
+		
+		
 	}
 
+	
+	public ArrayList<String> filtrarPor(ArrayList<String> lista, String prefijo){
+		ArrayList<String> res = new ArrayList<>();
+		
+		for (String palabra : lista) {
+			if(palabra.startsWith(prefijo)) {
+				res.add(palabra);
+			}
+		}
+		return res;
+		
+	}
+
+	public boolean almenosUnoEmpiezaCon(ArrayList<String> lista, String prefijo){
+		boolean res = false;
+		
+//		for (String palabra : lista) {
+//			res |= palabra.startsWith(prefijo);
+//				
+//		}
+		int i = 0;
+		while(!res && i < lista.size() ) {
+			res = lista.get(i).startsWith(prefijo);
+			i++;
+		}
+		return res;
+		
+	}
+
+	public boolean tdosComienzanCon(ArrayList<String> lista, String prefijo){
+		boolean res = true;
+		
+		int i = 0;
+		while(res && i < lista.size() ) {
+			res = lista.get(i).startsWith(prefijo);
+			i++;
+		}
+		return res;
+		
+	}
+	
+	
 	/**
 	 * Diseñe e implemente una función Java que reciba un arreglo de números enteros
 	 * y devuelva el número que tiene la mayor cantidad de dígitos pares. No puede
@@ -60,4 +107,7 @@ public class tp3 {
 		return -1;
 		
 	}
+
 }
+
+
